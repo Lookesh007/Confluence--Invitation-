@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Confluence Delhi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+```
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+    
+    .container {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        max-width: 600px;
+        width: 100%;
+        overflow: hidden;
+    }
+    
+    .header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 60px 40px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .header::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -10%;
+        width: 300px;
+        height: 300px;
+        background: rgba(255,255,255,0.1);
+        border-radius: 50%;
+        animation: float 6s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+    }
+    
+    .header h1 {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+        position: relative;
+        z-index: 1;
+        animation: slideIn 1s ease-out;
+    }
+    
+    .header p {
+        font-size: 1em;
+        opacity: 0.9;
+        position: relative;
+        z-index: 1;
+        animation: slideIn 1.2s ease-out;
+    }
+    
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .content {
+        padding: 40px;
+    }
+    
+    .date-box {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        margin-bottom: 30px;
+        animation: scaleIn 0.8s ease-out;
+    }
+    
+    .date-box .date {
+        font-size: 1.4em;
+        font-weight: bold;
+    }
+    
+    .date-box .location {
+        font-size: 0.95em;
+        opacity: 0.95;
+        margin-top: 5px;
+    }
+    
+    @keyframes scaleIn {
+        from {
+            opacity: 0;
+            transform: scale(0.9);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+    
+    .highlights {
+        margin: 30px 0;
+    }
+    
+    .highlight-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+        animation: slideInLeft 0.6s ease-out forwards;
+        opacity: 0;
+    }
+    
+    .highlight-item:nth-child(1) { animation-delay: 0.2s; }
+    .highlight-item:nth-child(2) { animation-delay: 0.4s; }
+    .highlight-item:nth-child(3) { animation-delay: 0.6s; }
+    .highlight-item:nth-child(4) { animation-delay: 0.8s; }
+    
+    @keyframes slideInLeft {
+        from {
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
+    .icon {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.2em;
+        margin-right: 15px;
+        flex-shrink: 0;
+    }
+    
+    .highlight-text {
+        font-size: 0.95em;
+        color: #333;
+    }
+    
+    .form-section {
+        background: #f9f9f9;
+        padding: 20px;
+        border-radius: 10px;
+        margin: 30px 0;
+        border: 2px solid #f0f0f0;
+    }
+    
+    .form-section h3 {
+        color: #333;
+        margin-bottom: 15px;
+        font-size: 1em;
+    }
+    
+    .form-group {
+        margin-bottom: 15px;
+    }
+    
+    .form-group label {
+        display: block;
+        color: #666;
+        font-size: 0.9em;
+        margin-bottom: 5px;
+        font-weight: 500;
+    }
+    
+    .form-group input {
+        width: 100%;
+        padding: 10px;
+        border: 2px solid #e0e0e0;
+        border-radius: 5px;
+        font-size: 0.95em;
+        transition: border-color 0.3s;
+        font-family: inherit;
+    }
+    
+    .form-group input:focus {
+        outline: none;
+        border-color: #667eea;
+        background: white;
+    }
+    
+    .cta-section {
+        text-align: center;
+        margin-top: 30px;
+    }
+    
+    .signature {
+        font-size: 0.9em;
+        color: #666;
+        line-height: 1.6;
+        margin-top: 30px;
+        animation: fadeIn 1.2s ease-out;
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    
+    .signature strong {
+        color: #333;
+    }
+    
+    .btn {
+        display: inline-block;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 12px 40px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        animation: popIn 0.8s ease-out;
+        font-size: 1em;
+    }
+    
+    .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+    }
+    
+    .btn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+    
+    @keyframes popIn {
+        from {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+    
+    .success-message {
+        display: none;
+        background: #4caf50;
+        color: white;
+        padding: 15px;
+        border-radius: 5px;
+        text-align: center;
+        margin-bottom: 20px;
+        animation: slideDown 0.5s ease-out;
+    }
+    
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .footer {
+        background: #f9f9f9;
+        padding: 20px;
+        text-align: center;
+        font-size: 0.85em;
+        color: #999;
+    }
+</style>
+```
+
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>✨ The Confluence</h1>
+            <p>Ideas for Better Diagnosis & Healthcare</p>
+        </div>
+
+```
+    <div class="content">
+        <p style="text-align: center; color: #666; margin-bottom: 20px; font-size: 1.05em;">
+            <strong>Dear Doctor,</strong>
+        </p>
+        
+        <div class="date-box">
+            <div class="date">22nd November, 2025</div>
+            <div class="location">New Delhi</div>
+        </div>
+        
+        <p style="color: #666; text-align: center; margin-bottom: 25px;">
+            You are invited to an <strong>exclusive summit</strong> bringing together India's leading diagnostic experts.
+        </p>
+        
+        <div class="highlights">
+            <div class="highlight-item">
+                <div class="icon">🔬</div>
+                <div class="highlight-text"><strong>Precision Medicine</strong> & Genomics innovations</div>
+            </div>
+            <div class="highlight-item">
+                <div class="icon">⚗️</div>
+                <div class="highlight-text"><strong>Mass Spectrometry</strong> & Advanced Diagnostics</div>
+            </div>
+            <div class="highlight-item">
+                <div class="icon">🤖</div>
+                <div class="highlight-text"><strong>AI-Driven Solutions</strong> in Modern Pathology</div>
+            </div>
+            <div class="highlight-item">
+                <div class="icon">🏥</div>
+                <div class="highlight-text"><strong>Lab Tour</strong> at National Reference Laboratory</div>
+            </div>
+        </div>
+        
+        <div class="success-message" id="successMessage">
+            ✓ Thank you! Your attendance has been confirmed. We look forward to seeing you!
+        </div>
+        
+        <form id="attendanceForm" onsubmit="handleSubmit(event)">
+            <div class="form-section">
+                <h3>Confirm Your Attendance</h3>
+                
+                <div class="form-group">
+                    <label for="name">Your Name *</label>
+                    <input type="text" id="name" name="name" required placeholder="Dr. Your Name">
+                </div>
+            </div>
+            
+            <div class="cta-section">
+                <button type="submit" class="btn">Confirm Attendance</button>
+            </div>
+        </form>
+        
+        <div class="signature">
+            <p><strong>Lokesh Kumar Gupta</strong></p>
+            <p>RSM – National Key Accounts</p>
+            <p><strong>Dr Lal PathLabs</strong></p>
+        </div>
+    </div>
+    
+    <div class="footer">
+        We look forward to welcoming you. Followed by Gala Dinner.
+    </div>
+</div>
+
+<script>
+    function handleSubmit(event) {
+        event.preventDefault();
+        
+        const name = document.getElementById('name').value;
+        const timestamp = new Date().toLocaleString();
+        
+        // Prepare data
+        const attendanceData = {
+            name: name,
+            timestamp: timestamp,
+            event: "The Confluence Delhi - 22nd November 2025"
+        };
+        
+        // Log to browser console (for testing)
+        console.log('Attendance Confirmed:', attendanceData);
+        
+        // Send to Google Sheets or your backend
+        sendToGoogleSheets(attendanceData);
+        
+        // Show success message
+        const form = document.getElementById('attendanceForm');
+        form.style.display = 'none';
+        document.getElementById('successMessage').style.display = 'block';
+    }
+    
+    function sendToGoogleSheets(data) {
+        // Replace with your actual Google Sheets Web App URL
+        const sheetURL = 'https://script.google.com/macros/d/YOUR_SCRIPT_ID/usercopy'; // Replace YOUR_SCRIPT_ID
+        
+        fetch(sheetURL, {
+            method: 'POST',
+            body: JSON.stringify(data)
+        })
+        .then(response => console.log('Data sent to Google Sheets'))
+        .catch(error => console.log('Error:', error));
+    }
+</script>
+```
+
+</body>
+</html>
